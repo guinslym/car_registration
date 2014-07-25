@@ -44,11 +44,42 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'factory_girl'
   gem 'faker'
+  #for errors
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'binding_of_caller'
+  #for printing in console
+  gem 'awesome_print', '~> 1.2.0'
+  #for automation
+  gem 'guard-rails'
+  gem 'guard-livereload'
+  gem 'rack-livereload'
+  gem 'guard-bundler'
 end
 
+#layout
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 gem 'validates_phone_number', '~> 2.0.1'
+
+#for heroku
+gem 'rails_12factor', group: :production
+
+
+#for authorization and authentification
+gem 'devise'
+#pour mettre en francais (FRENCH)
+gem 'rails-i18n', '~> 4.0.0'
+gem 'devise-i18n-views', '~> 0.2.8'
+gem "cancan"
+gem 'rolify', :git => 'git://github.com/EppO/rolify.git'
+gem 'nokogiri'
