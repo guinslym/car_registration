@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :province %><br>
-    <%= f.text_field :province %>
+    <%=f.select :province, Person::PROVINCE,{} ,:class => "form-control"%>
   </div>
   <div class="field">
     <%= f.label :postal_code %><br>
