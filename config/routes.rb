@@ -4,11 +4,14 @@ CarRegistration::Application.routes.draw do
   get "confirmations/create"
   get "home/index"
 
-  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"}
+  devise_for :users, :controllers => { :confirmations => "confirmations"}
   
   resources :vehicles
 
   resources :people
+
+  get "*path" => redirect("/")
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
