@@ -4,6 +4,7 @@ class Vehicle < ActiveRecord::Base
   validates :colour,:presence => true
   validates :colour, format: { with: /\A[a-zA-Z]\z/, message: "Only letters allowed" }
 
+  belongs_to :user
 
 
 end

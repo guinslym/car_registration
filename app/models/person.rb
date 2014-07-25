@@ -1,4 +1,7 @@
 class Person < ActiveRecord::Base
+  belongs_to :user
+
+  
   PROVINCE = ["Ontario", "Quebec", "Nova Scotia", "New Brunswick", 
               "Manitoba", "British Columbia", "Prince Edward Island", 
               "Saskatchewan", "Alberta", "Newfoundland and Labrador"]

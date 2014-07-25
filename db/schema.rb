@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725104527) do
+ActiveRecord::Schema.define(version: 20140725104820) do
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20140725104527) do
     t.string   "telephone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "people", ["user_id"], name: "index_people_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -51,6 +54,9 @@ ActiveRecord::Schema.define(version: 20140725104527) do
     t.string   "year"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree
 
 end
