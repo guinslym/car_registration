@@ -22,7 +22,16 @@ class ApplicationController < ActionController::Base
 
 
 end
-#TODO force the user to fill the form upon confirmation
-#TODO create the layout
+#TODO design & create the layout with Bourbon
+#TODO mailer to redesign
 #TODO keep only the Models Spec
-#TODO add animate.css
+#TODO add Factory girl because of Devise
+=begin
+  
+design the layout
+add an email template
+check the  flash to see if it's work
+factory girl
+remove my specs
+
+=end
