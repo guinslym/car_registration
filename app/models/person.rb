@@ -19,7 +19,10 @@ class Person < ActiveRecord::Base
   validates :telephone_number, :phone_number => {:ten_digits => true, :message => "invalid and can only be attributable to human error"}
 
 
-   #validates_associated :user
+  #validates_associated :user
+  #need to add it to spec
+  #validates :user_id,:presence => true
+
 
   private
 
