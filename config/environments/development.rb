@@ -6,8 +6,22 @@ CarRegistration::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+
   # Do not eager load code on boot.
   config.eager_load = false
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  # Gmail SMTP server setup
+  ActionMailer::Base.smtp_settings = {
+  :address => "smtp.gmail.com",
+  :enable_starttls_auto => true,
+  :port => 587,
+  :authentication => :plain,
+  :user_name => ENV['GMAIL_USERNAME'],
+  :password => ENV['GMAIL_PASSWORD']
+  }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

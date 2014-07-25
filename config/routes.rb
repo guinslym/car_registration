@@ -1,6 +1,11 @@
 CarRegistration::Application.routes.draw do
+  root 'home#index'
+  get "confirmations/new"
+  get "confirmations/create"
   get "home/index"
-  devise_for :users
+
+  devise_for :users, :controllers => {:registrations => "registrations", :confirmations => "confirmations"}
+  
   resources :vehicles
 
   resources :people
@@ -9,7 +14,6 @@ CarRegistration::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
