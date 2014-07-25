@@ -1,8 +1,9 @@
-class ConfirmationsController < ApplicationController
-  def new
+class ConfirmationsController < Devise::ConfirmationsController
+
+  private
+
+  def after_confirmation_path_for(resource_name, resource)
+    new_person_path
   end
 
-  def create
-    redirect_to new_vehicle_path
-  end
 end

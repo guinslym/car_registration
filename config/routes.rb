@@ -1,12 +1,15 @@
 CarRegistration::Application.routes.draw do
+  get "information/bon"
+  get "information/mechant"
   root 'home#index'
   get "confirmations/new"
   get "confirmations/create"
   get "home/index"
 
-  devise_for :users, :controllers => { :confirmations => "confirmations"}
+  devise_for :users, :controllers => { :confirmations => 'confirmations' }
   
   resources :vehicles
+  get "/hello", :to => "vehicles#new"
 
   resources :people
 
