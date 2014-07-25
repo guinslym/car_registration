@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :vehicle
+  has_many :vehicles
   has_one :person
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

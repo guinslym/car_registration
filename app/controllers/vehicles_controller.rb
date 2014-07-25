@@ -27,6 +27,9 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user_id = current_user.id
 
+    #could have put it in a concern or in the model validation
+    unless User.find(current_user.id).count >= 2 do 
+
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
@@ -35,6 +38,10 @@ class VehiclesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @vehicle.errors, status: :unprocessable_entity }
       end
+    end
+
+    else
+      redirect_to root_path, notice: 'There is a maximum of 2 vehicles per person.'
     end
   end
 
