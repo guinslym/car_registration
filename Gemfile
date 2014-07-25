@@ -69,6 +69,11 @@ gem 'neat'
 gem 'bitters'
 gem 'refills'
 
+#bootstrap instead of bourbon
+gem 'bootstrap-sass'
+gem 'rails_layout'
+
+
 gem 'validates_phone_number', '~> 2.0.1'
 
 #for heroku

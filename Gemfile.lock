@@ -43,6 +43,8 @@ GEM
       bourbon (>= 3.2)
       sass (>= 3.2)
       thor
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -150,6 +152,7 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_layout (1.0.20)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.0.5)
@@ -226,6 +229,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bitters
+  bootstrap-sass
   bourbon
   cancan
   coffee-rails (~> 4.0.0)
@@ -246,6 +250,7 @@ DEPENDENCIES
   rails (= 4.0.5)
   rails-i18n (~> 4.0.0)
   rails_12factor
+  rails_layout
   refills
   rolify!
   rspec-collection_matchers
