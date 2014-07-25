@@ -1,5 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Vehicle, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it ".coulour is expected to be alpha only" do
+    expect(Vehicle.create(:colour => "3458")).to have(1).error_on(:colour)
+  end
+  it ".make should be present" do
+    expect(Vehicle.create(:year => "3458")).to have(1).error_on(:make)
+  end
+  context ".year" do
+    it "should have a valid length" do
+      expect(Vehicle.create(:year => "3455", :make => "toyota")).to be_truthy
+      expect(Vehicle.create(:year => "33333")).to have(1).error_on(:year)
+    end
+    it "should be an integer" do
+      expect(Vehicle.create(:year => "aaaa")).to have(1).error_on(:year)
+      expect(Vehicle.create(:year => "aaaaaaaaa")).to have(2).error_on(:year)
+    end
+    it "should have only one user" do
+
+    end
+  end
 end
