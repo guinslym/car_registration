@@ -43,3 +43,12 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+  gem 'factory_girl'
+  gem 'faker'
+end
+
+gem 'validates_phone_number', '~> 2.0.1'
