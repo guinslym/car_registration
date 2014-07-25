@@ -1,4 +1,6 @@
 CarRegistration::Application.routes.draw do
+  resources :vehicles
+
   resources :people
 
   # The priority is based upon order of creation: first created -> highest priority.
