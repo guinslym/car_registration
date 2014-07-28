@@ -24,7 +24,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :user
 
   def remove_blank_space
-    self.license_plate = license_plate.gsub(/[^0-9a-z ]/i, '')
+    self.license_plate = license_plate.gsub(/[^0-9a-z ]/i, '').gsub(/\s+/, "")
   end
 
 
