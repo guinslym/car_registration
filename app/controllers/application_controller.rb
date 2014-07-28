@@ -20,7 +20,6 @@ end
 =begin 
 
 
-=end
 #TODO requirements to fill_out
 #FILTER ----can have a maximum of 2 vehicles
 #TODO keep only the Models Spec

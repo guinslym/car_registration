@@ -1,7 +1,7 @@
 <%# Rails flash messages styled for bitters %>
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <div class="<%= name.to_s == 'notice' ? 'success' : 'error' %>" id="flash-message">
+    <div class="<%= name.to_s == 'notice' ? 'success' : 'error' %>" id="flash-message" style="text-align:center;">
       <!-- add jquery to remove the message -->
       <%= content_tag :span, msg, :id => "flash_#{name}" %>
     </div>
