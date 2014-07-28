@@ -30,10 +30,9 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: car_registration_production
+  adapter: postgresql
+  encoding: unicode
+  database: 
   pool: 5
-  username: root
+  username: 
   password:
-  socket: /var/run/mysqld/mysqld.sock

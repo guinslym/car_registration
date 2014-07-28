@@ -46,8 +46,6 @@
 #
 
 CarRegistration::Application.routes.draw do
-  get "information/bon"
-  get "information/mechant"
   root 'home#home'
   get "confirmations/new"
   get "confirmations/create"

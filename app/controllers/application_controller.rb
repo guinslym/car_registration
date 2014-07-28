@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   #before_filter :authenticate_user!, except:[:home]
 
   #Double check after confirmation to make sure that the user have a Person' profile
-
   def check_person
     if (User.find(current_user.id).person)
       return true
@@ -17,7 +16,7 @@ class ApplicationController < ActionController::Base
 
 end
 
-=begin 
+=begin
 
 
 #TODO requirements to fill_out
