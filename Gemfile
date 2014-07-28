@@ -88,3 +88,6 @@ gem 'devise-i18n-views', '~> 0.2.8'
 gem "cancan"
 gem 'rolify', :git => 'git://github.com/EppO/rolify.git'
 gem 'nokogiri'
+
+#annotation
+gem 'annotate'

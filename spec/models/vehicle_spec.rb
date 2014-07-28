@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: vehicles
+#
+#  id            :integer          not null, primary key
+#  license_plate :string(255)
+#  colour        :string(255)
+#  make          :string(255)
+#  model         :string(255)
+#  year          :string(255)
+#  created_at    :datetime
+#  updated_at    :datetime
+#  user_id       :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Vehicle, :type => :model do

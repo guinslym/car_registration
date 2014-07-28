@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: people
+#
+#  id               :integer          not null, primary key
+#  first_name       :string(255)
+#  last_name        :string(255)
+#  street_address   :string(255)
+#  city             :string(255)
+#  province         :string(255)
+#  postal_code      :string(255)
+#  telephone_number :string(255)
+#  created_at       :datetime
+#  updated_at       :datetime
+#  user_id          :integer
+#
+
 class Person < ActiveRecord::Base
   belongs_to :user
 
@@ -5,10 +22,11 @@ class Person < ActiveRecord::Base
   PROVINCE = ["Ontario", "Quebec", "Nova Scotia", "New Brunswick", 
               "Manitoba", "British Columbia", "Prince Edward Island", 
               "Saskatchewan", "Alberta", "Newfoundland and Labrador"]
-  #first name is not mandatory in the conditions but I did it anyway            
+  #first name is not mandatory in the conditions but I did it anyway    
   validates :first_name,:presence => true
 
-  validates :postal_code, format: { with: /\A[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}\z/, message: "Only letters and numbers allowed V4M 3K1" }
+  #to refactorise--- add a TODO /i
+  validates :postal_code, format: { with: /\A[ABCEGHJKLMNPRSTVXYabceghjklmnprstvxy]{1}\d{1}[ABCEGHJKLMNPRSTVXYabceghjklmnprstvxy]{1} *\d{1}[ABCEGHJKLMNPRSTVXYabceghjklmnprstvxy]{1}\d{1}\z/, message: "::Only letters and numbers allowed within a specified format V4M 3K1<=or=>V4M3K1" }
   validates :postal_code, :presence => true
 
   validates :province, inclusion: { in: PROVINCE,    message: "%{value} is not a valid province" }

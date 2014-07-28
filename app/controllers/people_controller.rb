@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :check_person, only:[:index, :show]
 
   # GET /people
   # GET /people.json
@@ -14,6 +16,7 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
+    #redirect_to root_path, :notice => "A User can only have one profile (Person)" unless Person.where(:user_id => current_user.id).count
     @person = Person.new
   end
 
@@ -25,7 +28,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
-    @person.user_id = current_user.id
+    @person.user = current_user
 
     respond_to do |format|
       if @person.save

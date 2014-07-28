@@ -1,14 +1,8 @@
 class HomeController < ApplicationController
 
-  def index
-  if check_condition?
-
-    @hello = "Correct"
-  else
-    @hello = "Not good"
-
-  end
-end
+  def home
+  render layout: "general"
+ end
 
 
 end

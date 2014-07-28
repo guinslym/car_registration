@@ -1,5 +1,8 @@
 class VehiclesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :check_vehicles, only:[:create]
+  before_action :check_person
 
   # GET /vehicles
   # GET /vehicles.json
@@ -26,6 +29,8 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user_id = current_user.id
+
+    #check Quantity of user::: if Vehicle.where(:user_id => current_user.id) <= 2
 
     #could have put it in a concern or in the model validation
     respond_to do |format|
@@ -74,4 +79,8 @@ class VehiclesController < ApplicationController
     def vehicle_params
       params.require(:vehicle).permit(:user_id, :license_plate, :colour, :make, :model, :year)
     end
+
+    def check_vehicles
+      redirect_to root_path, notice: "Baller - You can only have 2 vehicles" and return if (User.find(current_user.id).vehicles.count == 2)
+    end#check_vehicles
 end
