@@ -22,8 +22,8 @@ CarRegistration::Application.configure do
   :enable_starttls_auto => true,
   :port => 587,
   :authentication => :plain,
-  user_name: <%= ENV['GMAIL_USERNAME'] %>,
-  password: <%= ENV['GMAIL_PASSWORD'] %>
+  user_name:  ENV['GMAIL_USERNAME'] ,
+  password: ENV['GMAIL_PASSWORD'] 
   }
 
 
