@@ -9,12 +9,10 @@
 #double check my env.variables
 puts ENV['GMAIL_USERNAME']
 
-4.times do 
-  user = User.new(
-        :email                 => "admin@xxxxx.xxx",
-        :password              => "12345sf6",
-        :password_confirmation => "12345sf6"
-    )
-    user.skip_confirmation!
-    user.save!
-end
+user = User.new(
+      :email                 => "hello@gmail.com",
+      :password              => "12345sf6",
+      :password_confirmation => "12345sf6"
+  )
+  user.skip_confirmation!
+  user.save!

@@ -74,7 +74,6 @@ gem 'refills'
 gem 'bootstrap-sass'
 gem 'rails_layout'
 
-gem 'cancan'
 
 gem 'validates_phone_number', '~> 2.0.1'
 

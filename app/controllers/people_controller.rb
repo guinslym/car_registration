@@ -2,11 +2,13 @@ class PeopleController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_person, only: [:show, :edit, :update, :destroy]
   before_action :check_person, only:[:index, :show]
+  #no need of CanCan for a small authorization logic
+  before_action :do_you_have_the_right, except: [:index]
 
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.where(user_id: current_user.id)
   end
 
   # GET /people/1
@@ -74,5 +76,14 @@ class PeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.require(:person).permit(:user_id, :first_name, :last_name, :street_address, :city, :province, :postal_code, :telephone_number)
+    end
+    def do_you_have_the_right
+      #callback
+      if @person.nil? then return true ; end
+      #this is the logic for this function
+      if @person.user_id != current_user.id
+        redirect_to people_path
+        flash[:notice] = "You do not have the right permission"
+      end
     end
 end

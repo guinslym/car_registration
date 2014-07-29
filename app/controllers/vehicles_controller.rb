@@ -3,11 +3,13 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
   before_action :check_vehicles, only:[:create]
   before_action :check_person
+  #no need of CanCan for a small authorization logic
+  before_action :do_you_have_the_right, except: [:index]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where(user_id: current_user.id)
   end
 
   # GET /vehicles/1
@@ -83,4 +85,13 @@ class VehiclesController < ApplicationController
     def check_vehicles
       redirect_to root_path, notice: "Baller - You can only have 2 vehicles" and return if (User.find(current_user.id).vehicles.count == 2)
     end#check_vehicles
+    def do_you_have_the_right
+      #callback
+      if @vehicle.nil? then return true ; end
+      #the logic start here
+      if @vehicle.user_id != current_user.id
+        redirect_to vehicles_path
+        flash[:notice] = "You do not have the right permission"
+      end
+    end
 end
